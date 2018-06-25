@@ -1,0 +1,32 @@
+{
+  "name": "maze",
+  "version": "1.0.0",
+  "description": "generate maze",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --hot --config build/webpack.dev.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangyingjun/maze.git"
+  },
+  "author": "wangyingjun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangyingjun/maze/issues"
+  },
+  "homepage": "https://github.com/wangyingjun/maze#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  }
+}
