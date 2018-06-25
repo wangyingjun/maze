@@ -1,0 +1,2 @@
+# maze
+generate maze
