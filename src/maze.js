@@ -20,9 +20,9 @@ class Maze {
         this.mazeData = [];
         //记录轨迹
         this.track = [];
-        for(let col = 0; col < this.col*2 + 1; col++){
+        for(let row = 0; row < this.row*2 + 1; row++){
             let rowData = [];
-            for(let row = 0; row < this.row*2 + 1; row++){
+            for(let col = 0; col < this.col*2 + 1; col++){
                 if (col % 2 === 0 || row % 2 === 0) {
                     //墙
                     rowData.push({
@@ -48,10 +48,10 @@ class Maze {
         visitedList.push(current);
         while(current.isVisited){
 
-            let north = (current.col - 2) >= 0 ? this.mazeData[current.col - 2][current.row] : {isVisited: true},
-                east = (current.row + 2) < (this.row * 2 + 1) ? this.mazeData[current.col][current.row + 2] : {isVisited: true},
-                south = (current.col + 2) < (this.col * 2 + 1) ? this.mazeData[current.col + 2][current.row] : {isVisited: true},
-                west = (current.row - 2) >= 0 ? this.mazeData[current.col][current.row - 2] : {isVisited: true};
+            let north = (current.col - 2) >= 0 ? this.mazeData[current.row][current.col - 2] : {isVisited: true},
+                east = (current.row + 2) < (this.row * 2 + 1) ? this.mazeData[current.row + 2][current.col] : {isVisited: true},
+                south = (current.col + 2) < (this.col * 2 + 1) ? this.mazeData[current.row][current.col + 2] : {isVisited: true},
+                west = (current.row - 2) >= 0 ? this.mazeData[current.row - 2][current.col] : {isVisited: true};
 
             let nearbyList = [];
             !north.isVisited && nearbyList.push(north);
@@ -61,7 +61,7 @@ class Maze {
 
             if(nearbyList.length !== 0){
                 let nearby = nearbyList[random(nearbyList.length)];
-                let breakWall = this.mazeData[(nearby.col + current.col) / 2][(nearby.row + current.row) / 2];
+                let breakWall = this.mazeData[(nearby.row + current.row) / 2][(nearby.col + current.col) / 2];
                 breakWall.value = 1;
 
                 this.track.push(breakWall);
